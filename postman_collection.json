@@ -1,0 +1,88 @@
+{
+  "info": {
+    "name": "VK Calendar Notifier API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/health"
+      }
+    },
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"vk_user_id\": 317752976, \"timezone\": \"Europe/Moscow\"}"
+        },
+        "url": "http://localhost:8000/users"
+      }
+    },
+    {
+      "name": "Get User",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/users/317752976"
+      }
+    },
+    {
+      "name": "Sync Calendar",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8000/sync/317752976"
+      }
+    },
+    {
+      "name": "Get Events",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/events/317752976"
+      }
+    },
+    {
+      "name": "Send Notification",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8000/notify/317752976?message=Тестовое уведомление"
+      }
+    },
+    {
+      "name": "Get Notification History",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/notifications/317752976"
+      }
+    },
+    {
+      "name": "Get User Settings",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8000/settings/317752976"
+      }
+    },
+    {
+      "name": "Update User Settings",
+      "request": {
+        "method": "PUT",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"reminder_intervals\": [30, 10, 5], \"silence_start\": \"22:00\"}"
+        },
+        "url": "http://localhost:8000/settings/317752976"
+      }
+    },
+    {
+      "name": "Trigger Weekly Summary",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8000/admin/weekly-summary"
+      }
+    }
+  ]
+}
